@@ -33,9 +33,8 @@ export const useGetData = () => {
 
   const handleInfiniteScroll = () => {
     if (
-      loading ||
       window.innerHeight + document.documentElement.scrollTop + 1 <
-        document.documentElement.scrollHeight
+      document.documentElement.scrollHeight
     ) {
       return;
     }
@@ -52,6 +51,4 @@ export const useGetData = () => {
   useEffect(() => {
     getData();
   }, [page]);
-  console.log(page);
-  return loading;
 };

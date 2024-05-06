@@ -10,22 +10,24 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-function ApplyButton() {
+function ApplyButton({ jdLink }) {
   return (
     <Stack spacing={2} direction="row" width={"100%"}>
-      <ColorButton
-        variant="contained"
-        style={{
-          width: "100%",
-          borderRadius: "11px",
-          padding: "11px",
-          color: "black",
-          backgroundColor: "#55efc4",
-          textTransform: "capitalize",
-        }}
-      >
-        ⚡ Easy Apply
-      </ColorButton>
+      <a href={jdLink} style={{ textDecoration: "none", width: "100%" }}>
+        <ColorButton
+          variant="contained"
+          style={{
+            width: "100%",
+            borderRadius: "11px",
+            padding: "11px",
+            color: "black",
+            backgroundColor: "#55efc4",
+            textTransform: "capitalize",
+          }}
+        >
+          ⚡ Easy Apply
+        </ColorButton>
+      </a>
     </Stack>
   );
 }

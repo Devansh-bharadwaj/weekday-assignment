@@ -32,6 +32,7 @@ function JobCard({
   jobDescription,
   location,
   minExp,
+  jdLink,
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -95,6 +96,9 @@ function JobCard({
       />
       <CardContent style={{ marginBottom: "20px" }}>
         <MaskedBox>
+          <Typography style={{ fontWeight: "600" }}>
+            Job Description:{" "}
+          </Typography>
           <Typography
             variant="body2"
             color="text.secondary"
@@ -102,7 +106,7 @@ function JobCard({
               textAlign: "justify",
             }}
           >
-            {jobDescription}
+            {jobDescription?.substring(0, 563)}
           </Typography>
         </MaskedBox>
         <ShowMoreBox>
@@ -152,7 +156,7 @@ function JobCard({
           width: "100%",
         }}
       >
-        <ApplyButton />
+        <ApplyButton jdLink={jdLink} />
       </CardActions>
     </Card>
   );

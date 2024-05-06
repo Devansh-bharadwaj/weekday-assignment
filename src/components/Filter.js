@@ -1,10 +1,13 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SelectInput from "./SelectInput";
 import { useGetData } from "../utils/useGetData";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { searchFilter } from "../utils/dataSlice";
 
 const Filter = () => {
+  const [searchText, setSearchText] = useState("");
+  const dispatch = useDispatch();
   const jobData = useSelector((store) => store.data.allData);
   useGetData();
   const uniqueRoles = new Set();
@@ -21,11 +24,24 @@ const Filter = () => {
   const experiences = ["0", "1", "2", "3", "4", "5", "6", "7"];
   const remotes = ["remote", "on-site", "hybrid"];
   const minBaseSalary = ["0", "10", "20", "30", "40", "50"];
+
+  const searchHandler = (e) => {
+    setSearchText(e.target.value);
+    dispatch(searchFilter(e.target.value));
+  };
+
+  //   useEffect(() => {
+  //     const timer = setTimeout((e) => dispatch(searchFilter(searchText)), 200);
+
+  //     return () => {
+  //       clearTimeout(timer);
+  //     };
+  //   }, [searchText]);
   return (
     <>
       <Box>
         <Grid container spacing={2}>
-          <Grid item md={2}>
+          {/* <Grid item md={2}>
             <SelectInput names={names} placeholder={"Roles"} />
           </Grid>
           <Grid item md={2}>
@@ -52,6 +68,26 @@ const Filter = () => {
             <SelectInput
               names={minBaseSalary}
               placeholder={"Minimum Base Pay Salary"}
+            />
+          </Grid> */}
+          <Grid item md={2}>
+            <select name="jobRole" placeholder={"Role"}>
+              <option value="" disabled selected>
+                Role
+              </option>
+              {names?.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
+            </select>
+          </Grid>
+          <Grid item md={2}>
+            <input
+              type="text"
+              value={searchText}
+              placeholder="Search by company"
+              onChange={(e) => searchHandler(e)}
             />
           </Grid>
         </Grid>

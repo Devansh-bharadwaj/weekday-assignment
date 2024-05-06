@@ -7,8 +7,7 @@ import Filter from "./Filter";
 
 const Home = () => {
   const jobData = useSelector((store) => store.data.allData);
-  const loading = useGetData();
-  console.log(loading);
+  useGetData();
   const filterData = useSelector((store) => store.data.filteredData);
 
   return (
@@ -31,6 +30,7 @@ const Home = () => {
                       minExp={job?.minExp}
                       maxExp={job?.maxExp}
                       logo={job?.logoUrl}
+                      jdLink={job?.jdLink}
                     />
                   </Grid>
                 ))
@@ -44,6 +44,7 @@ const Home = () => {
                       minExp={job?.minExp}
                       maxExp={job?.maxExp}
                       logo={job?.logoUrl}
+                      jdLink={job?.jdLink}
                     />
                   </Grid>
                 ))}

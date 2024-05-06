@@ -31,8 +31,6 @@ function getStyles(name, personName, theme) {
 }
 
 function SelectInput({ names, placeholder }) {
-  //   const filterData = useSelector((store) => store.data.filteredData);
-  //   useGetData();
   const dispatch = useDispatch();
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
