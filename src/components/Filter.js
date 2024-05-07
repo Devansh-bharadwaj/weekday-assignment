@@ -89,7 +89,7 @@ const Filter = () => {
               </option>
               {experiences?.map((exp) => (
                 <option key={exp} value={exp}>
-                  {exp}
+                  {exp} Years
                 </option>
               ))}
             </select>
@@ -105,7 +105,7 @@ const Filter = () => {
               </option>
               {minBaseSalary?.map((sal) => (
                 <option key={sal} value={sal}>
-                  {sal}
+                  {sal} Lacs
                 </option>
               ))}
             </select>

@@ -33,6 +33,8 @@ function JobCard({
   location,
   minExp,
   jdLink,
+  minSalary,
+  maxSalary,
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -94,7 +96,13 @@ function JobCard({
           </>
         }
       />
-      <CardContent style={{ marginBottom: "20px" }}>
+      <CardContent style={{ marginBottom: "20px", paddingTop: "0" }}>
+        {minSalary && maxSalary && (
+          <Typography>
+            Estimated Salary: {minSalary && "Rs " + minSalary + "L"} -{" "}
+            {maxSalary && "Rs " + maxSalary + "L"}
+          </Typography>
+        )}
         <MaskedBox>
           <Typography style={{ fontWeight: "600" }}>
             Job Description:{" "}

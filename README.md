@@ -37,6 +37,10 @@ This project utilizes ReactJs for the frontend development, Material UI for styl
 - **src/utils/useGetData.js**: This file contains a custom hook for fetching data from an API and storing it in the Redux store.
 - **src/utils/appStore.js**: This file initializes the Redux store.
 - **src/utils/dataSlice.js**: Here, a Redux slice is created for adding data globally and managing filter values for filtering job listings.
+- **src/components/Home.js**: This is the home page where i imported all the components.
+- **src/components/JobCard.js**: This component includes the job card ui and have all the information inside it about the job.
+- **src/components/ApplyButton.js**: This is a material ui button for applying the job.
+- **src/components/Filter.js**: Here all the filtering elements are presents.
 
 ## Contributing
 

@@ -2,7 +2,7 @@ import React from "react";
 import JobCard from "./JobCard";
 import { useSelector } from "react-redux";
 import { useGetData } from "../utils/useGetData";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Filter from "./Filter";
 
 const Home = () => {
@@ -51,22 +51,30 @@ const Home = () => {
         style={{ marginTop: "50px", marginBottom: "50px" }}
       >
         <Filter />
-        <Grid container spacing={2}>
-          {applyFilters()?.map((job) => (
-            <Grid item md={4} key={job.jdUid}>
-              <JobCard
-                jobTitle={job.jobRole}
-                companyName={job.companyName}
-                location={job.location}
-                jobDescription={job.jobDetailsFromCompany}
-                minExp={job.minExp}
-                maxExp={job.maxExp}
-                logo={job.logoUrl}
-                jdLink={job.jdLink}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        {applyFilters()?.length > 0 && applyFilters() !== null ? (
+          <Grid container spacing={2}>
+            {applyFilters()?.map((job) => (
+              <Grid item md={4} key={job.jdUid}>
+                <JobCard
+                  jobTitle={job.jobRole}
+                  companyName={job.companyName}
+                  location={job.location}
+                  jobDescription={job.jobDetailsFromCompany}
+                  minExp={job.minExp}
+                  maxExp={job.maxExp}
+                  logo={job.logoUrl}
+                  jdLink={job.jdLink}
+                  minSalary={job?.minJdSalary}
+                  maxSalary={job?.maxJdSalary}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <Typography style={{ textAlign: "center" }}>
+            No matched found
+          </Typography>
+        )}
       </Container>
     </Box>
   );
