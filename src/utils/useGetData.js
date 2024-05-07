@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { addAllData } from "./dataSlice";
 
 export const useGetData = () => {
-  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const myHeaders = new Headers();
@@ -21,14 +20,17 @@ export const useGetData = () => {
   };
 
   const getData = async () => {
-    const data = await fetch(
-      "https://api.weekday.technology/adhoc/getSampleJdJSON",
-      requestOptions
-    );
-    const json = await data.json();
-    dispatch(addAllData(json));
-    setLoading(false);
-    return json;
+    try {
+      const data = await fetch(
+        "https://api.weekday.technology/adhoc/getSampleJdJSON",
+        requestOptions
+      );
+      const json = await data.json();
+      dispatch(addAllData(json));
+      return json;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleInfiniteScroll = () => {
@@ -38,8 +40,6 @@ export const useGetData = () => {
     ) {
       return;
     }
-
-    setLoading(true);
     setPage((prevPage) => prevPage + 1);
   };
 

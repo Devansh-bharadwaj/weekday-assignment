@@ -5,31 +5,18 @@ const dataSlice = createSlice({
   initialState: {
     allData: null,
     filteredData: null,
+    selectedValues: null,
   },
   reducers: {
     addAllData: (state, action) => {
       state.allData = action.payload;
+      state.filteredData = action.payload;
     },
-    filterData: (state, action) => {
-      const filterValue = action.payload;
-      const filtered = state.allData?.jdList?.filter((dataItem) => {
-        return dataItem?.jobRole === filterValue[0];
-      });
-      state.filteredData = [...filtered]; // Update filteredData state
-    },
-    searchFilter: (state, action) => {
-      const searchText = action.payload.toLowerCase();
-      const filtered = state.allData?.jdList?.filter((dataItem) => {
-        if (searchText !== "") {
-          return dataItem?.companyName?.toLowerCase().includes(searchText);
-        } else {
-          return dataItem;
-        }
-      });
-      state.filteredData = filtered;
+    selectedAllValues: (state, action) => {
+      state.selectedValues = action.payload;
     },
   },
 });
 
-export const { addAllData, filterData, searchFilter } = dataSlice.actions;
+export const { addAllData, filterData, selectedAllValues } = dataSlice.actions;
 export default dataSlice.reducer;

@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Weekday Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a job listing application built using ReactJs, Material UI, CSS, and Redux. It allows users to view job listings, filter them based on various criteria, and search for specific job postings.
 
-## Available Scripts
+## How to Run Locally
 
-In the project directory, you can run:
+1. **Clone the Repository**: Open your terminal and run the command:
 
-### `npm start`
+   ```
+   git clone https://github.com/Devansh-bharadwaj/weekday-assignment.git
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Install Dependencies**: Navigate into the project directory and run:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   ```
+   npm install
+   ```
 
-### `npm test`
+3. **Start the Project**: Run the following command to start the project locally:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```
+   npm start
+   ```
 
-### `npm run build`
+## About the Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project utilizes ReactJs for the frontend development, Material UI for styling components, and Redux for managing global state. The application features a set of job cards displayed on the UI. As the user scrolls down, additional job cards dynamically load.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Filtering**: Users can filter job listings based on job role, location, minimum experience, and minimum base pay.
+- **Search**: A search box is provided for users to search for job postings by typing the company name.
+- **Dynamic Loading**: Job cards are dynamically loaded as the user scrolls down the page.
 
-### `npm run eject`
+### Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **src/utils/useGetData.js**: This file contains a custom hook for fetching data from an API and storing it in the Redux store.
+- **src/utils/appStore.js**: This file initializes the Redux store.
+- **src/utils/dataSlice.js**: Here, a Redux slice is created for adding data globally and managing filter values for filtering job listings.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contributions to this project are welcome. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the [MIT License](LICENSE).

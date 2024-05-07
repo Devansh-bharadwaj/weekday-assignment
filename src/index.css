@@ -19,3 +19,23 @@ input {
   margin-bottom: 10px;
   border-radius: 8px;
 }
+select {
+  word-wrap: normal;
+  width: 100%;
+  padding: 7px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  color: gray;
+  cursor: pointer;
+}
+option {
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 768px) {
+  select,
+  input {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
